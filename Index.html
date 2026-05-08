@@ -1661,11 +1661,14 @@
 
               <form name="contacto-terravia" method="POST" data-netlify="true" class="space-y-6 mt-10" netlify-honeypot="bot-field">
                 
-                <!-- Honeypot anti-spam -->
-                <input type="hidden" name="form-name" value="contacto-terravia">
-                <div class="hidden">
-                  <label>¿Eres un robot? <input name="bot-field"></label>
-                </div>
+                <!-- Honeypot anti-spam (invisible) -->
+             <input type="hidden" name="form-name" value="contacto-terravia">
+
+                <!-- Este campo es invisible para humanos, pero atrapa bots -->
+            <div style="position:absolute; left:-9999px; top:-9999px; opacity:0; height:0; overflow:hidden;">
+             <label>No llenar este campo si eres humano</label>
+              <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+              </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
